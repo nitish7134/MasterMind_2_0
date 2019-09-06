@@ -39,22 +39,22 @@ public class Game extends AppCompatActivity {
         WinScreen.setActivated(false);
         digitLength = getIntent().getIntExtra("DIGIT",4);
         Difficulty = getIntent().getCharExtra("Diffi",'T');
-        SetCorrectNo(Difficulty);
+        SetCorrectNo();
         DifficultyMode = getIntent().getStringExtra("DifficultyMode");
-        score = (int)Math.pow(10,digitLength);
+        score = 101;
         guess.setHint("Enter a " + digitLength + " digit No");
     }
-    private void SetCorrectNo(char Diffi){
+    private void SetCorrectNo(){
         Random random = new Random();
         int min = (int)Math.pow(10,digitLength-1);
-        CorrectNo = Integer.toString(random.nextInt(min) + min);
+        CorrectNo = Integer.toString(random.nextInt(min)+ 10*min - min - 1) ;
     }
     private String GetResult(String Guessed){
         if(Guessed.compareTo(CorrectNo) == 0){
             GameWon();
         }
         String correctNo = CorrectNo;
-        char[] resultTrial = {' ' , ' ' , ' ' , ' ',' ',' '};
+        char[] resultTrial = {'?','?','?','?','?','?'};
         String ResultT ="";
         Guessed = guess.getText().toString();
         int s = Guessed.length();
@@ -99,6 +99,7 @@ public class Game extends AppCompatActivity {
         guess.setText("");
     }
     private void GameWon(){
+        findViewById(R.id.PrevResults).setVisibility(View.INVISIBLE);
         SharedPreferences sharedPreferences = getSharedPreferences("HIGH_SCORES",Context.MODE_PRIVATE);
         guess.setEnabled(false);
         findViewById(R.id.SubmitButton).setActivated(false);
@@ -108,7 +109,7 @@ public class Game extends AppCompatActivity {
         if(sharedPreferences.getInt(DifficultyMode,0)<score) {
             sharedPreferences.edit().putInt(DifficultyMode, score).commit();
         }
-        ScoreText.setText("Score:\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t" + score);
+        ScoreText.setText(Integer.toString(score));
     }
 
     public void MenuPress(View V){

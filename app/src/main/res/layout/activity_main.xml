@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/download">
-
+    android:padding="15dp"
+    android:background="@drawable/main_bg"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/Buttons"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -22,9 +22,13 @@
 
         <Button
             android:id="@+id/NewGame"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="49dp"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="StartNewGame"
             android:text="Start New Game"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,9 +38,13 @@
 
         <Button
             android:id="@+id/ButtonInstructions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
             android:layout_marginTop="20dp"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="ShowInstructions"
             android:text="Instructions"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,9 +53,13 @@
 
         <Button
             android:id="@+id/Scores"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
             android:layout_marginTop="20dp"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="ShowScores"
             android:text="Scores"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,9 +68,13 @@
 
         <Button
             android:id="@+id/Exit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
             android:layout_marginTop="20dp"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="ExitGame"
             android:text="Exit"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +93,6 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="60dp"
-        android:background="#990D333F"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="invisible"
@@ -87,37 +102,61 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="EasyMode"
+            android:layout_margin="20dp"
             android:text="Easy" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="MediumMode"
-            android:text="Medium" />
+            android:text="Medium"
+            android:layout_margin="20dp"
+            />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="HardMode"
-            android:text="Hard" />
+            android:text="Hard"
+            android:layout_margin="20dp"
+            />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/border_for_view"
+            android:textColor="#FFFFFF"
+            android:padding="15dp"
             android:onClick="MenuBack"
+            android:layout_margin="20dp"
+
             android:text="Back" />
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/Instructions"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_height="match_parent"
+        android:background="#8B866F6F"
         android:visibility="invisible"
-        android:paddingLeft="15dp"
+        android:layout_margin="20dp"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/Buttons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,12 +169,34 @@
             android:background="@drawable/back_button_icon"
             android:onClick="MenuBack"
             app:layout_constraintTop_toBottomOf="parent" />
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/BackButton"
+    >
 
         <TextView
+            android:layout_margin="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/BackButton"
-            android:text="fdgdfvmvbsdnvdsvdnvcsdv\" />
+            android:layout_height="fill_parent"
+            android:autoSizeTextType="uniform"
+            android:text="Guess the random number\n
+The processing is done digit by digit and hints will be given accordingly:\n
+• If the digit guessed is correct, 0 will be displayed in its position in the right column.
+\n• If the guessed digit is correct in value and in position as in the random number, then an X will be displayed in its position in the right column.
+\n• In case of a wrongly guessed digit, a question mark will be displayed in its position in the column.
+\n\n
+The number of digits in the level are as follows-\n
+Easy- 3\n
+Medium- 4\n
+Hard- 5\n
+\n
+The digits of the number can be repeatitive."
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            />
+</ScrollView>
     </RelativeLayout>
     <LinearLayout
         android:id="@+id/ScoreScreen"
@@ -147,7 +208,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="60dp"
-        android:background="@drawable/game_bg"
+        android:background="#8888"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:visibility="invisible"
@@ -155,33 +216,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:padding="15dp"
         >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:autoSizeTextType="uniform"
+            android:background="@drawable/back_button_icon"
+            android:onClick="MenuBack"
+            android:textColor="#FFFFFF" />
         <TextView
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EASY: "
-        android:textSize="50dp"
+        android:text="Easy: "
+        android:textSize="40dp"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold|italic"
         android:id="@+id/EasyScore"
         />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Medium: "
-            android:textSize="50dp"
+            android:textSize="40dp"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold|italic"
             android:id="@+id/MediumScore"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hard: 300"
-            android:textSize="50dp"
+            android:textSize="40dp"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold|italic"
             android:id="@+id/HardScore"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:onClick="MenuBack"
             />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

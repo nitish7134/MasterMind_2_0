@@ -5,14 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Game"
-    android:background="@drawable/game_bg">
+    android:background="@drawable/main_bg">
 
     <Button
         android:id="@+id/SubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="Process_guess"
+        android:background="@drawable/border_for_view"
+        android:textColor="#FFFFFF"
         android:text="Submit"
+        android:layout_marginRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/UserGuess" />
 
@@ -23,8 +26,9 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/UserGuess"
         app:layout_constraintEnd_toStartOf="@+id/SubmitButton"
-        android:textColor="#FF0000"
+        android:textColor="#FFAB00"
         android:text="INVALID"
+        android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toEndOf="@+id/UserGuess"
         app:layout_constraintTop_toTopOf="@+id/UserGuess" />
@@ -38,7 +42,11 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
+        android:background="@drawable/border_for_view"
         android:hint="Enter Your Guess"
+        android:padding="15dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,6 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:textColor="#FFFFFF"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserGuess"
@@ -65,20 +74,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:id="@+id/PrevResults"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="16dp"
-        android:background="#56888888"
-      >
+        android:background="#56888888">
         <TextView
             android:id="@+id/Attempts"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:minWidth="100dp"
             android:text=""
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -89,6 +99,7 @@
             android:layout_height="match_parent"
             android:minWidth="100dp"
             android:text=""
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -104,7 +115,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/game_bg">
+        android:background="@drawable/border_for_view"
+        android:padding="10dp"
+        >
 
         <TextView
             android:id="@+id/WinText"
@@ -116,27 +129,45 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:textAlignment="center"
-            android:textColor="#5B00FF"
+            android:textColor="#FFE400"
             android:textSize="80dp"
             android:text="You Won" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
+            android:id="@+id/TextScore"
+            android:layout_width="167dp"
+            android:layout_height="85dp"
             android:layout_below="@+id/WinText"
-            android:id="@+id/ScoreText"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:autoSizeTextType="uniform"
-            android:text = "Score: \n\t\t\t\t\t\t\t\t\t\t\t\t 1000000"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
-             />
+            android:layout_marginEnd="198dp"
+            android:layout_marginRight="198dp"
+            android:autoSizeTextType="uniform"
+            android:textColor="#FFFFFF"
+            android:text="Score:"
+            android:textStyle="bold|italic" />
 
+        <TextView
+            android:id="@+id/ScoreText"
+            android:layout_width="167dp"
+            android:layout_height="85dp"
+            android:layout_below="@+id/WinText"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="160dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="10dp"
+            android:autoSizeTextType="uniform"
+            android:text="1000000"
+            android:textStyle="bold|italic" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -146,6 +177,7 @@
             android:layout_alignParentLeft="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:background="#EDDBB157"
             android:layout_marginTop="30dp"
             android:textSize="30sp"
             android:onClick="MenuPress"
@@ -158,6 +190,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginLeft="60dp"
+            android:background="#EDDBB157"
             android:layout_marginTop="0dp"
             android:textSize="30sp"
             android:layout_marginEnd="10dp"
